@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Liste des personnes{% endblock%}
+
+{% block sidebar %}
+  {{ block.super }}
+  <h3>Recently found persons</h3>
+  <ul>
+    <li><a href="#">person1</a></li>
+    <li><a href="#">person1</a></li>
+    <li><a href="#">person1</a></li>
+    <li><a href="#">person1</a></li>
+    <li><a href="#">person1</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <h3>Lost articles</h3>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <img src="http://via.placeholder.com/170x160">
+        <h4>Bineli Hervé</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <nav aria="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a class="disabled" href="#">1 <span class="sr-only">(current)</span> </a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+{% endblock %}

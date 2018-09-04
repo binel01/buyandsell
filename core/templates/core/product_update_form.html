@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Mise à jour d'article {% endblock %}
+
+{% block menu_bar %}
+{{ block.super }}
+<li class="active" ><a href="{% url 'article-list' %}">Articles</a></li>
+{% endblock menu_bar %}
+
+{% block content %}
+<h3>Mise à jour d'article </h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Mettre à jour">
+    <button class="button"><a href="{% url 'article-list' %}">Annuler</a></button>
+</form>
+{% endblock %}

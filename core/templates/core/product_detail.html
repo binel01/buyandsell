@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Détails de {{ object.name }} {% endblock %}
+
+{% block menu_bar %}
+{{ block.super }}
+<li class="active" ><a href="{% url 'product-list' %}">products</a></li>
+{% endblock menu_bar %}
+
+{% block content %}
+<!-- Informations générales sur product -->
+<h3>Détails de {{ object.name }}</h3>
+<p><img src="{{ object.photo.url }}" height="170px" width="160px"></p>
+<p>Nom: {{ object.name }}</p>
+<p>Description : {{ object.description }}</p>
+<p>Prix : {{ object.price_ht }}</p>
+<p>Catégorie : {{ object.category }}</p>
+<p>Ajouté le : {{ object.created_at }}</p>
+
+<!-- Actions réalisables sur l'product -->
+<h3>Actions</h3>
+<button class="button"><a href="{% url 'product-list' %}">Liste de produits</a></button>
+<button class="button"><a href="{% url 'product-update' object.id %}">Modifier ce produit</a></button>
+<button class="button"><a href="{% url 'product-delete' object.id %}">Supprimer ce produit</a></button>
+{% endblock %}

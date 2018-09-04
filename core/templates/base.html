@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block title %} Welcome to the core app !! {% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'lf_core/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lf_core/css/main.css' %}">
+
+  </head>
+
+  <body>
+
+  	<nav class="navbar navbar-default">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Lost & Found</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            {% block menu_bar %}
+            {% endblock menu_bar %}
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <p class="navbar-text navbar-right">Signed in as <a href="#">{{ user.username}}</a></p>
+        </div>
+    </nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+        	{% block sidebar %}
+            <h3>Recently found pets</h3>
+            <ul>
+                <li><a href="#">Pet1</a></li>
+                <li><a href="#">Pet1</a></li>
+                <li><a href="#">Pet1</a></li>
+                <li><a href="#">Pet1</a></li>
+                <li><a href="#">Pet1</a></li>
+                <li><a href="#">Pet1</a></li>
+                <li><a href="#">Pet1</a></li>
+            </ul>
+            {% endblock %}
+        </div>
+        <div class="col-md-9">
+        	{% block content %}
+            {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'lf_core/js/jquery.js' %}"></script>
+    <script src="{% static 'lf_core/js/bootstrap.js' %}"></script>
+  </body>
+</html>

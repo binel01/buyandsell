@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} Liste d'articles {% endblock %}
+
+{% block menu_bar %}
+{{ block.super }}
+<li class="active" ><a href="{% url 'article-list' %}">Articles</a></li>
+{% endblock menu_bar %}
+
+{% block content %}
+<h3>Liste d'articles </h3>
+<button class="button"><a href="{% url 'article-create' %}">Ajouter article </a></button>
+
+<!--   On n'utilisera plus la vue tableau
+<table class="table table-stripped">
+	<thead>
+		<th>Id</th>
+		<th>Photo</th>
+		<th>Nom</th>
+		<th>Description</th>
+		<th>Date de creation</th>
+		<th>Auteur</th>
+		<th>-</th>
+	</thead>
+	<tbody>
+		{% for article in object_list %}
+		<tr>
+			<td> {{ article.id }} </td>
+			<td> {{ article.photo }} </td>
+			<td> {{ article.name }} </td>
+			<td> {{ article.description }} </td>
+			<td> {{ article.created_at }} </td>
+			<td> {{ article.created_by }} </td>
+			<td><button class="button"><a href="{% url 'article-detail' article.id %}">Détails</a></button></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+-->
+
+  <div class="row" style="padding-top: 20px">
+  	{% for article in object_list %}
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <p><img src="{{ article.photo.url }}" height="170px" width="160px"></p>
+		<p>Nom: {{ article.name }}</p>
+		<p>Description: {{ article.description }}</p>
+		<p>Créé à: {{ article.created_at }}</p>
+		<p>Créé par: {{ article.created_by }}</p>
+		<button class="button"><a href="{% url 'article-detail' article.id %}">Détails</a></button>
+	</div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+{% endblock %}

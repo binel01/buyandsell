@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Creation of a product {% endblock %}
+
+{% block menu_bar %}
+{{ block.super }}
+<li class="active" ><a href="{% url 'product-list' %}">products</a></li>
+{% endblock menu_bar %}
+
+{% block content %}
+<h3>Creation of a product</h3>
+<form action="" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create">
+    <button class="button"><a href="{% url 'product-list' %}">Cancel</a></button>
+</form>
+{% endblock %}

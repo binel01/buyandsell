@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmer la suppression {% endblock %}
+
+{% block menu_bar %}
+{{ block.super }}
+<li class="active" ><a href="{% url 'product-list' %}">Articles</a></li>
+{% endblock menu_bar %}
+
+{% block content %}
+<h3>Liste de </h3>
+<p>Voulez-vous vraiment supprimer l'objet: {{ object.name }} </p>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Delete">
+    <button class="button"><a href="{% url 'product-list' %}">Annuler</a></button>
+</form>
+{% endblock %}
